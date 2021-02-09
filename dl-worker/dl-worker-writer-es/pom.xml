@@ -5,21 +5,21 @@
     <parent>
         <artifactId>dl-worker</artifactId>
         <groupId>com.ucar.datalink</groupId>
-        <version>1.0.0-beta</version>
+        <version>1.0.2-beta</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>dl-worker-writer-es</artifactId>
 
     <properties>
-        <jackson.version>2.1.2</jackson.version>
+        <jackson.version>2.10.1</jackson.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.ucar.datalink</groupId>
             <artifactId>dl-worker-api</artifactId>
-            <version>1.0.0-beta</version><!--版本视具体情况而定-->
+            <version>1.0.2-beta</version><!--版本视具体情况而定-->
         </dependency>
 
         <dependency>

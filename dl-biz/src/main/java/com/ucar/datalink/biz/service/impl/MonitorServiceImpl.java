@@ -22,7 +22,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -53,6 +55,8 @@ public class MonitorServiceImpl implements MonitorService {
                     }
                 }
             } else if (monitorCat == MonitorCat.WORKER_MONITOR) {
+                list = monitorDAO.getListByResourceAndCat(resourceId, monitorCat.getKey());
+            } else if(monitorCat == MonitorCat.FLINKER_MONITOR) {
                 list = monitorDAO.getListByResourceAndCat(resourceId, monitorCat.getKey());
             }
             return list != null ? list : Lists.newArrayList();
@@ -228,6 +232,22 @@ public class MonitorServiceImpl implements MonitorService {
 
             if (num4 <= 0 || num5 <= 0) {
                 throw new DatalinkException("create worker monitor fail.");
+            }
+        }
+
+        if(monitorCat == MonitorCat.FLINKER_MONITOR) {
+            MonitorInfo dataxMonitorInfo = new MonitorInfo();
+            dataxMonitorInfo.setIsEffective(1);
+            dataxMonitorInfo.setMonitorRange("06:00-23:59");
+            dataxMonitorInfo.setIntervalTime(defaultIntervalTime);
+            dataxMonitorInfo.setResourceId(resourceId);
+            dataxMonitorInfo.setThreshold(defaultJvmUsageThreshold);
+            dataxMonitorInfo.setMonitorType(MonitorType.TASK_EXCEPTION_MONITOR.getKey());
+            dataxMonitorInfo.setMonitorCat(MonitorCat.FLINKER_MONITOR.getKey());
+            Integer num = monitorDAO.insert(dataxMonitorInfo);
+
+            if (num <= 0) {
+                throw new DatalinkException("create datax monitor fail.");
             }
         }
     }

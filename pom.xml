@@ -5,7 +5,7 @@
     <artifactId>datalink</artifactId>
     <packaging>pom</packaging>
     <name>datalink</name>
-    <version>1.0.0-beta</version>
+    <version>1.0.2-beta</version>
     <inceptionYear>2016</inceptionYear>
     <url>https://github.com/ucarGroup/DataLink</url>
 
@@ -17,6 +17,7 @@
         <module>dl-contract</module>
         <module>dl-domain</module>
         <module>dl-extend</module>
+        <module>dl-flinker</module>
     </modules>
 
     <profiles>
@@ -128,12 +129,12 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>2.6.3</version>
+                <version>2.10.1</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
-                <version>2.6.3</version>
+                <version>2.10.1</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.jaxrs</groupId>
@@ -143,12 +144,12 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>2.6.3</version>
+                <version>2.10.1</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.58</version>
+                <version>1.2.62</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
